@@ -40,8 +40,17 @@ class FileStorage:
             json.dump(temp, f)
 
     def delete(self, object=None):
-        """Deletes object from storage"""
+        """Deletes the specified object from the storage.
+
+        Args:
+            obj: The object to be deleted. If None, all objects will be deleted.
+
+        Returns:
+            None
+
+        """
         if obj is None:
+            # Delete all objects
             return
         key = obj.to_dict()['__class__'] + '.' + obj.id
         if key in FileStorage.__objects:
