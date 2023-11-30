@@ -9,10 +9,6 @@ from models.amenity import Amenity
 from models.place import Place
 from models.review import Review
 
-#!/usr/bin/python3
-"""This module defines a class to manage file storage for hbnb clone"""
-import json
-
 
 class FileStorage:
     """This class manages storage of hbnb models in JSON format"""
@@ -43,11 +39,10 @@ class FileStorage:
                 temp[key] = val.to_dict()
             json.dump(temp, f)
 
-    def delete():
+    def delete(self, object=None):
         """Deletes object from storage"""
         if obj is None:
             return
-
         key = obj.to_dict()['__class__'] + '.' + obj.id
         if key in FileStorage.__objects:
             del FileStorage.__objects[key]
@@ -61,7 +56,6 @@ class FileStorage:
         from models.city import City
         from models.amenity import Amenity
         from models.review import Review
-
         classes = {
             'BaseModel': BaseModel, 'User': User, 'Place': Place,
             'State': State, 'City': City, 'Amenity': Amenity,
