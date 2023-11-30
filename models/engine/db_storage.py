@@ -15,7 +15,6 @@ from models.amenity import Amenity
 classes = {"State": State, "City": City, "User": User,
         "Place": Place, "Review": Review, "Amenity": Amenity}
 
-
 class DBStorage:
     """DBStorage class"""
     __engine = None
