@@ -20,8 +20,6 @@ class State(BaseModel, Base):
         def cities(self):
             """Getter"""
             city_lst = []
-            all_cities = models.storage.all(City)
-            for city in all_cities.values():
-                if city.state_id == self.id:
-                    city_lst.append(city)
-            return city_lst
+            states = storage.all(State)
+            for state_id, state in states.items():
+                print(state)
