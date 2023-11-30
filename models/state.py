@@ -20,6 +20,6 @@ class State(BaseModel, Base):
         def cities(self):
             """Getter"""
             city_lst = []
-            states = storage.all(State)
-            for state_id, state in states.items():
-                print(state)
+            state = State(name="California")
+            storage.new(state)
+            storagei.save()
