@@ -43,14 +43,14 @@ class FileStorage:
         """Deletes the specified object from the storage.
 
         Args:
-            obj: The object to be deleted. If None, all objects will be deleted.
+            obj: Object to be deleted. If None, all objects will be deleted.
 
         Returns:
             None
 
         """
         if obj is None:
-            # Delete all objects
+            # Delete objects
             return
         key = obj.to_dict()['__class__'] + '.' + obj.id
         if key in FileStorage.__objects:
