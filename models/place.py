@@ -16,6 +16,7 @@ if getenv('HBNB_TYPE_STORAGE') == 'db':
                                 ForeignKey('amenities.id'),
                                 primary_key=True, nullable=False))
 
+
 class Place(BaseModel, Base):
     """ A place to stay """
     __tablename__ = 'places'
