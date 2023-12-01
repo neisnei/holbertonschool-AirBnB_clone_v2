@@ -20,6 +20,7 @@ classes = {
     "Amenity": Amenity
 }
 
+
 class DBStorage:
     """DBStorage class"""
     __engine = None
