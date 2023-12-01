@@ -16,7 +16,6 @@ if getenv('HBNB_TYPE_STORAGE') == 'db':
                                 ForeignKey('amenities.id'),
                                 primary_key=True, nullable=False))
 
-
 class Place(BaseModel, Base):
     """ A place to stay """
     __tablename__ = 'places'
@@ -34,10 +33,10 @@ class Place(BaseModel, Base):
 
     if getenv('HBNB_TYPE_STORAGE') == 'db':
         reviews = relationship("Review", backref="place",
-                            cascade="all, delete, delete-orphan")
+                               cascade="all, delete, delete-orphan")
         amenities = relationship("Amenity", secondary=place_amenity,
-                                viewonly=False,
-                                back_populates="place_amenities")
+                                 viewonly=False,
+                                 back_populates="place_amenities")
     else:
         @property
         def reviews(self):
