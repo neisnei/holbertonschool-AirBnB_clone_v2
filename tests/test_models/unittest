@@ -1,0 +1,27 @@
+import unittest
+from models import State
+
+class TestState(unittest.TestCase):
+
+    def test_create_state(self):
+        """Test that a new state can be created."""
+        state = State(name="California")
+        self.assertEqual(state.name, "California")
+
+    def test_get_all_states(self):
+        """Test that all states can be retrieved."""
+        states = State.get_all_states()
+        self.assertGreater(len(states), 0)
+
+    def test_update_state(self):
+        """Test that a state can be updated."""
+        state = State.get_state_by_id(1)
+        state.name = "New York"
+        state.save()
+        self.assertEqual(state.name, "New York")
+
+    def test_delete_state(self):
+        """Test that a state can be deleted."""
+        state = State.get_state_by_id(1)
+        state.delete()
+        self.assertIsNone(State.get_state_by_id(1))
