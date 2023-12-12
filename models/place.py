@@ -7,7 +7,6 @@ from sqlalchemy import Table, Column, String, Integer, Float, ForeignKey
 from sqlalchemy.orm import relationship
 from os import getenv
 
-
 if getenv('HBNB_TYPE_STORAGE') == 'db':
     place_amenity = Table('place_amenity', Base.metadata,
                           Column('place_id', String(60),
@@ -43,7 +42,7 @@ class Place(BaseModel, Base):
         @property
         def reviews(self):
             """Getter attribute reviews that returns
-            the list of Review instances"""
+              the list of Review instances"""
             review_list = []
             all_reviews = models.storage.all(Review)
             for revs in all_reviews.values():
@@ -54,13 +53,13 @@ class Place(BaseModel, Base):
         @property
         def amenities(self):
             """Getter attribute amenities that returns
-            the list of Amenity instances"""
+              the list of Amenity instances"""
             return self.amenity_ids
 
         @amenities.setter
-        def amenities(self, value):
+        def amenities(self, obj):
             """Setter attribute amenities that handles
             append method for adding an Amenity.id
             to the attribute amenity_ids"""
-            if type(value).__name__ == "Amenity":
-                self.amenity_ids.append(value.id)
+            if type(obj).__name__ == "Amenity":
+                self.amenity_ids.append(obj.id)
