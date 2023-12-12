@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 '''
-script starts Flask web application
+Module script that starts a Flask web application
 '''
 from flask import Flask, render_template
 from models import storage
