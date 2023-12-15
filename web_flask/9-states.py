@@ -33,7 +33,7 @@ def states(id=None):
     for obj in state_dic.values():
         if obj.id == id:
             state = obj
-    return render_template('9-states.html', states=state_dic, id=id,
+            return render_template('9-states.html', states=state_dic, id=id,
                         state=state)
 
 
