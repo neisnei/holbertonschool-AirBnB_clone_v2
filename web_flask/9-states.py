@@ -1,13 +1,13 @@
 #!/usr/bin/python3
-"""This is the module documentation"""
+"""Module starts a flask web app"""
 from flask import Flask, render_template
 from flask import render_template
 from models import storage
 from models.state import State
 from models.city import City
 """
-Script that starts a Flask
-Web app for my HBNB clone project
+Script starts a Flask
+Web app for my HBNB clone
 """
 app = Flask(__name__)
 
